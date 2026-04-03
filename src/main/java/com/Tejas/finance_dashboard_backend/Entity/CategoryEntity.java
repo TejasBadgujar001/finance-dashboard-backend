@@ -4,6 +4,8 @@ import com.Tejas.finance_dashboard_backend.enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,6 +21,9 @@ public class CategoryEntity {
 
     @Enumerated(EnumType.STRING)
     private TransactionType type;
+
+    @OneToMany(mappedBy = "category")
+    private List<FinancialRecord> records;
 }
 
 
